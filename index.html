@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Market Place | Shop Everything</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="top-header">
+        <a class="logo" href="#">THE MARKET <span>PLACE</span></a>
+
+        <div class="search">
+            <input id="searchInput" type="text"
+                placeholder="Search products, vehicles and more...">
+            <button onclick="searchItems()">Search</button>
+        </div>
+
+        <div class="header-actions">
+            <a href="tel:0746081189" class="contact-link">☎ Contact</a>
+            <button class="cart-btn" onclick="toggleCart()">
+                🛒 Cart (<span id="cartCount">0</span>)
+            </button>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#" onclick="showCategory('All')">Home</a>
+        <a href="#" onclick="showCategory('Electronics')">Electronics</a>
+        <a href="#" onclick="showCategory('Fashion')">Fashion</a>
+        <a href="#" onclick="showCategory('Home')">Home & Living</a>
+        <a href="#" onclick="showCategory('Beauty')">Beauty</a>
+        <a href="#" onclick="showCategory('Groceries')">Groceries</a>
+        <a href="#" onclick="showCategory('Vehicles')">🚗 Vehicles for Sale</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="hero-label">WELCOME TO THE MARKET PLACE</span>
+        <h1>EVERYTHING YOU NEED.<br>
+            ALL IN ONE PLACE.</h1>
+        <p>Discover great deals on products, electronics,
+            fashion and vehicles.</p>
+        <button onclick="showCategory('All')">Start Shopping</button>
+    </div>
+</section>
+
+<section class="benefits">
+    <div>🚚 <strong>Convenient Shopping</strong></div>
+    <div>🛍️ <strong>Multiple Categories</strong></div>
+    <div>🚗 <strong>Vehicles Marketplace</strong></div>
+    <div>📞 <strong>Customer Support</strong></div>
+</section>
+
+<section class="categories-section">
+    <h2>Explore Categories</h2>
+
+    <div class="category-grid">
+        <button onclick="showCategory('Electronics')">📱<span>Electronics</span></button>
+        <button onclick="showCategory('Fashion')">👕<span>Fashion</span></button>
+        <button onclick="showCategory('Home')">🏠<span>Home & Living</span></button>
+        <button onclick="showCategory('Beauty')">💄<span>Beauty</span></button>
+        <button onclick="showCategory('Groceries')">🛒<span>Groceries</span></button>
+        <button onclick="showCategory('Vehicles')">🚗<span>Vehicles</span></button>
+    </div>
+</section>
+
+<main>
+    <section class="products-section" id="listingSection">
+
+        <div class="section-title">
+            <div>
+                <h2 id="listingTitle">Featured Products</h2>
+                <p id="listingDescription">Discover our latest deals.</p>
+            </div>
+
+            <select id="sortSelect" onchange="sortItems()">
+                <option value="default">Sort By</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+            </select>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+
+    </section>
+</main>
+
+<!-- CART -->
+<div class="overlay" id="overlay" onclick="closePanels()"></div>
+
+<aside class="cart-panel" id="cartPanel">
+    <div class="panel-header">
+        <h2>Shopping Cart</h2>
+        <button onclick="closePanels()">✕</button>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-bottom">
+        <h3>Total: KSh <span id="cartTotal">0</span></h3>
+        <button class="primary-btn" onclick="checkout()">
+            Proceed to Checkout
+        </button>
+    </div>
+</aside>
+
+<!-- CHECKOUT -->
+<div class="modal" id="checkoutModal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeCheckout()">✕</button>
+        <h2>Complete Your Order</h2>
+        <p>Enter your details below.</p>
+
+        <form id="checkoutForm">
+            <label>Full Name</label>
+            <input type="text" id="customerName" required>
+
+            <label>Phone Number</label>
+            <input type="tel" id="customerPhone" required>
+
+            <label>Delivery Address</label>
+            <textarea id="customerAddress" required></textarea>
+
+            <button class="primary-btn" type="submit">
+                Submit Order
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- VEHICLE DETAILS -->
+<div class="modal" id="vehicleModal">
+    <div class="modal-content vehicle-details">
+        <button class="close-btn" onclick="closeVehicleDetails()">✕</button>
+        <div id="vehicleDetailsContent"></div>
+    </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+    <div>
+        <h2>Need Help? We Are Here For You.</h2>
+        <p>Contact our customer support team for enquiries,
+            orders and assistance.</p>
+    </div>
+
+    <div class="contact-actions">
+        <a href="tel:0746081189" class="primary-btn">
+            ☎ Call 0746081189
+        </a>
+
+        <a href="https://wa.me/254746081189"
+           target="_blank" class="whatsapp-btn">
+            WhatsApp Us
+        </a>
+    </div>
+</section>
+
+<footer>
+    <h2>THE MARKET PLACE</h2>
+    <p>Everything you need, all in one place.</p>
+    <p>Customer Support: 0746081189</p>
+    <p>© 2026 The Market Place. All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
